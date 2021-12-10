@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,800&display=swap');
+* {
+    background-color: rgba(236, 228, 228, 0.315);
+
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,64 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.sidebar {
+  padding: 0 !important;
+  min-height: 100vh;
+}
+.sidebar-wrapper {
+  margin:0 !important;
+}
+
+.content {
+}
+.logo-container {
+  padding: .5rem;
+  background-color: rgba(15, 185, 120, 0.705);
+}
+.logo {
+  width: 90%;
+  object-fit: contain;
+    background: transparent;
+
+}
+
+.s-wrapper {
+  padding: 0rem;
+}
+.s-list {
+    padding-left:0;
+
+}
+.s-li {
+  list-style-type: none;
+  font-size: 1rem;
+  margin: 0rem;
+  letter-spacing: .075rem;
+  padding: .75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color:rgba(52, 53, 53, 0.692);
+}
+.s-li:hover {
+  background-color: rgb(41, 224, 194);
+}
+.sidebar-content {
+  padding:0 !important;
+}
+
+.nav-wrapper {
+  width: 100%;
+  padding: .5rem 1rem;
+}
+.usr-logo {
+  width:15%;
+  object-fit: contain;
+}
+.usr-name {
+  margin: auto;
+  margin-left: 20px;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .075rem;
 }
