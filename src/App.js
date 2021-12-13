@@ -1,6 +1,12 @@
 import React from "react";
 import logo from "./man.png";
+import iphone from "./iphone.png";
+import charger from "./charger.png";
+import airpods from "./airpods.png";
+import watch from "./watch.png";
 import ReactDOM from "react-dom";
+import Example from "./Chart";
+import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +24,9 @@ import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import { faMicrochip } from "@fortawesome/free-solid-svg-icons";
 import { faHdd } from "@fortawesome/free-solid-svg-icons";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+
 const arrowDown = <FontAwesomeIcon icon={faChevronDown} />;
 const envelope = <FontAwesomeIcon icon={faEnvelope} />;
 const cog = <FontAwesomeIcon icon={faCog} />;
@@ -34,7 +43,23 @@ const affiliate = <FontAwesomeIcon icon={faUserFriends} />;
 const cpu = <FontAwesomeIcon icon={faMicrochip} />;
 const hdd = <FontAwesomeIcon icon={faHdd} />;
 const bandwidth = <FontAwesomeIcon icon={faWifi} />;
+const filter = <FontAwesomeIcon icon={faFilter} />;
+const option = <FontAwesomeIcon icon={faCaretDown} />;
+const data = [
+  { name: "Monday", uv: 7800 },
+  { name: "Tuesday", uv: 6100 },
+  { name: "Wednesday", uv: 12000 },
+  { name: "Thursday", uv: 10000 },
+];
 
+const renderLineChart = (
+  <ResponsiveContainer width="100%" height="80%">
+    <LineChart width={400} height={400} data={data}>
+      <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+    </LineChart>
+  </ResponsiveContainer>
+);
 
 const siteTitle = "prototype";
 const userName = "admin";
@@ -73,6 +98,7 @@ function App() {
       </nav>
 
       <div className="main-content d-flex justify-content-between">
+        <Example></Example>
         <div className="sidebar container-fluid">
           <div className="sidebar-wrapper row">
             <div className="sidebar-content">
@@ -290,6 +316,182 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="deck container-fluid">
+            <div className="deck-wrapper row justify-content-between">
+              <div className="deck-left col-6 ">
+                <div className="left-title d-flex justify-content-between">
+                  <h4>Trending Products</h4>
+
+                  <div class="dropdown">
+                    <button
+                      className="btn btn-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu1"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Category
+                    </button>
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenu1"
+                    >
+                      <a className="dropdown-item" href="#!">
+                        Action
+                      </a>
+                      <a className="dropdown-item" href="#!">
+                        Another action
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="left-content">
+                  <div class="">
+                    <table class="table table-striped table-borderless trending-table table-responsive">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>Product</th>
+                          <th>Popularity</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src={iphone}></img>Apple Iphone 12
+                          </td>
+                          <td>+51%</td>
+                          <td>{option}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src={airpods}></img>Apple Earpods Gen 3
+                          </td>
+                          <td>+35%</td>
+                          <td>{option}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src={watch}></img>Apple Watch Gen 6
+                          </td>
+                          <td>+29%</td>
+                          <td>{option}</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src={charger}></img>Apple MagSafe Charger
+                          </td>
+                          <td>+16%</td>
+                          <td>{option}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div className="deck-right col-6 ">
+                <div className="right-wrapper container-fluid">
+                  <div className="right-top row">
+                    <div className="top-left right-card  col-6">
+                      <h6>Total Sales</h6>
+                      <h3>$25k</h3>
+                      {renderLineChart}
+                    </div>
+                    <div className="top-right right-card d-flex flex-column col-5">
+                      <h6>Target</h6>
+                      <h3>$200k</h3>
+                      <div class="progress deck-progress-main">
+                        <div
+                          className="progress-bar deck-progress"
+                          role="progressbar"
+                          style={{ width: "68%" }}
+                          aria-valuenow="28"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                      <h6>Current: 138,000</h6>
+                    </div>
+                  </div>
+                  <div className="right-bottom row">
+                    <div className="top-right right-card  col-5">
+                      <h5>Ad-Campaigns</h5>
+                      <p class="font-italic">No campaigns yet</p>
+                      <button class="campaign-btn">Start Now</button>
+                    </div>
+                    <div className="top-left right-card  col-6">
+                      <h6>New Users</h6>
+                      <h3>+231</h3>
+                      {renderLineChart}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-wrapper">
+            <h2 className="section-title">Orders</h2>
+            <div class="table-responsive">
+              <table class="table table-striped table-borderless" id="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Product ID</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>25/06/2021</td>
+                    <td>5331</td>
+                    <td>$321.6</td>
+                    <td class="td-status processing">Processing</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>25/06/2021</td>
+                    <td>9984</td>
+                    <td>$411.2</td>
+                    <td class="td-status processing">Processing</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>24/06/2021</td>
+                    <td>1330</td>
+                    <td>$16.6</td>
+                    <td class="td-status processing">Processing</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>24/06/2021</td>
+                    <td>8945</td>
+                    <td>$72.5</td>
+                    <td class="td-status shipped">Shipped</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>24/06/2021</td>
+                    <td>3335</td>
+                    <td>$125.46</td>
+                    <td class="td-status shipped">Shipped</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>24/06/2021</td>
+                    <td>2785</td>
+                    <td>$687.0</td>
+                    <td class="td-status shipped">Shipped</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
