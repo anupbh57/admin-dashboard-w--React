@@ -249,6 +249,19 @@ code {
   color: rgba(21, 216, 151, 0.726) !important;
 }
 
+
+/* Recharts*/
+
+.content > .recharts-responsive-container {
+  margin: 2rem auto;
+  background-attachment: unset !important;
+}
+
+.content > .recharts-responsive-container  * {
+    background: transparent !important;
+}
+
+
 /*Table Starts*/
 
 .table-wrapper {

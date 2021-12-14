@@ -6,6 +6,7 @@ import airpods from "./airpods.png";
 import watch from "./watch.png";
 import ReactDOM from "react-dom";
 import Example from "./Chart";
+import $ from "jquery";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +27,8 @@ import { faHdd } from "@fortawesome/free-solid-svg-icons";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-
+import "../node_modules/jquery/dist/jquery.min.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 const arrowDown = <FontAwesomeIcon icon={faChevronDown} />;
 const envelope = <FontAwesomeIcon icon={faEnvelope} />;
 const cog = <FontAwesomeIcon icon={faCog} />;
@@ -64,9 +66,12 @@ const renderLineChart = (
 const siteTitle = "prototype";
 const userName = "admin";
 const notifNumber = 12;
+
+
 function App() {
   return (
     <div className="main">
+
       <nav className="nav">
         <div className="nav-wrapper d-flex justify-content-between">
           <div className="nav-logo">{siteTitle}</div>
@@ -86,7 +91,17 @@ function App() {
 
                 <h3 class="usr-name">{userName}</h3>
                 <div className="notif">{notifNumber}</div>
-                <div className="usr-arrow">{arrowDown}</div>
+                <a
+                  tabindex="0"
+                  class="btn btn-lg btn-danger"
+                  role="button"
+                  data-toggle="popover"
+                  data-trigger="focus"
+                  title="Dismissible popover"
+                  data-content="Click anywhere to dismiss this popover"
+                >
+                  <div className="usr-arrow">{arrowDown}</div>
+                </a>
               </div>
             </div>
             <div className="nav-controls d-flex justify-content-between">
@@ -98,7 +113,6 @@ function App() {
       </nav>
 
       <div className="main-content d-flex justify-content-between">
-        <Example></Example>
         <div className="sidebar container-fluid">
           <div className="sidebar-wrapper row">
             <div className="sidebar-content">
@@ -222,6 +236,7 @@ function App() {
         </div>
         <div className="content">
           <h2 className="section-title">Traffic Analytics</h2>
+
           <div className="card-display card-deck">
             <div className="card">
               <div className="card-wrapper">
@@ -286,6 +301,7 @@ function App() {
               </div>
               <div id="overlay"></div>
             </div>
+
             <div className="card">
               <div className="card-wrapper">
                 <h3 className="card-title">This Month</h3>
@@ -319,6 +335,7 @@ function App() {
             </div>
           </div>
 
+          <Example></Example>
           <div className="deck container-fluid">
             <div className="deck-wrapper row justify-content-between">
               <div className="deck-left col-6 ">
@@ -433,7 +450,7 @@ function App() {
               </div>
             </div>
           </div>
-          
+
           <div class="table-wrapper">
             <h2 className="section-title">Orders</h2>
             <div class="table-responsive">
