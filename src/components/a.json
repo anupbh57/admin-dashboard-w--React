@@ -1,0 +1,79 @@
+{
+  "traffic":[
+    {
+      "sources": {
+        "total": 8267,
+        "sengine": 4684,
+        "direct": 2684,
+        "affiliates": 899
+      }
+    },
+    {
+      "sources": {
+        "total": 10092,
+        "sengine": 6558,
+        "direct": 2245,
+        "affiliates": 1289
+      }
+    },
+    {
+      "sources": {
+        "total": 8839,
+        "sengine": 4385,
+        "direct": 3288,
+        "affiliates": 1166
+      }
+    },
+    {
+      "sources": {
+        "total": 10551,
+        "sengine": 6508,
+        "direct": 2388,
+        "affiliates": 1655
+      }
+    },
+    {
+      "sources": {
+        "total": 12893,
+        "sengine": 7805,
+        "direct": 3100,
+        "affiliates": 1988
+      }
+    },
+    {
+      "sources": {
+        "total": 12987,
+        "sengine": 8188,
+        "direct": 1233,
+        "affiliates": 3566
+      }
+    },
+    {
+      "sources": {
+        "total": 11699,
+        "sengine": 4256,
+        "direct": 3655,
+        "affiliates": 3788
+      }
+    },
+    {
+      "sources": {
+        "total": 248010,
+        "sengine": 140520,
+        "direct": 80520,
+        "affiliates": 26970
+      }
+    },
+    {
+      "sources": {
+        "total": 247520,
+        "sengine": 155300,
+        "direct": 33600,
+        "affiliates": 58620
+      }
+    }
+  ]
+    
+}
+
+

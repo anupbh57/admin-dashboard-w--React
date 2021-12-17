@@ -6,7 +6,12 @@ import airpods from "./airpods.png";
 import watch from "./watch.png";
 import ReactDOM from "react-dom";
 import Example from "./Chart";
+import { UserName, SiteTitle, CpuRes, CpuLoader, StorageRes, StorageLoader, BandwidthRes, BandwidthLoader } from "./components/User";
+import { TodayTraffic } from "./components/traffic";
+import "popper.js";
 import $ from "jquery";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -22,13 +27,10 @@ import { faSortUp } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faMousePointer } from "@fortawesome/free-solid-svg-icons";
 import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
-import { faMicrochip } from "@fortawesome/free-solid-svg-icons";
 import { faHdd } from "@fortawesome/free-solid-svg-icons";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import "../node_modules/jquery/dist/jquery.min.js";
-import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 const arrowDown = <FontAwesomeIcon icon={faChevronDown} />;
 const envelope = <FontAwesomeIcon icon={faEnvelope} />;
 const cog = <FontAwesomeIcon icon={faCog} />;
@@ -42,7 +44,6 @@ const up = <FontAwesomeIcon icon={faSortUp} />;
 const google = <FontAwesomeIcon icon={faGoogle} />;
 const direct = <FontAwesomeIcon icon={faMousePointer} />;
 const affiliate = <FontAwesomeIcon icon={faUserFriends} />;
-const cpu = <FontAwesomeIcon icon={faMicrochip} />;
 const hdd = <FontAwesomeIcon icon={faHdd} />;
 const bandwidth = <FontAwesomeIcon icon={faWifi} />;
 const filter = <FontAwesomeIcon icon={faFilter} />;
@@ -62,19 +63,14 @@ const renderLineChart = (
     </LineChart>
   </ResponsiveContainer>
 );
-
-const siteTitle = "prototype";
-const userName = "admin";
 const notifNumber = 12;
-
 
 function App() {
   return (
     <div className="main">
-
       <nav className="nav">
         <div className="nav-wrapper d-flex justify-content-between">
-          <div className="nav-logo">{siteTitle}</div>
+          <SiteTitle />
           <div className="nav-right d-flex justify-content-between">
             <div className="nav-search input-group input-group-sm">
               <input
@@ -88,20 +84,10 @@ function App() {
             <div className="nav-profile d-flex justify-content-center">
               <div className="nav-profile-left d-flex justify-content-center">
                 <img src={logo} className="usr-logo"></img>
-
-                <h3 class="usr-name">{userName}</h3>
+                <UserName />
                 <div className="notif">{notifNumber}</div>
-                <a
-                  tabindex="0"
-                  class="btn btn-lg btn-danger"
-                  role="button"
-                  data-toggle="popover"
-                  data-trigger="focus"
-                  title="Dismissible popover"
-                  data-content="Click anywhere to dismiss this popover"
-                >
-                  <div className="usr-arrow">{arrowDown}</div>
-                </a>
+
+                <div className="usr-arrow">{arrowDown}</div>
               </div>
             </div>
             <div className="nav-controls d-flex justify-content-between">
@@ -182,52 +168,16 @@ function App() {
               <div className="s-wrapper">
                 <ul className="s-list">
                   <li className="s-li resource d-flex flex-column justify-content-start">
-                    <div className="s-li-wrap d-flex justify-content-start">
-                      <span className="li-ico">{cpu}</span>
-                      <span className="li-item">CPU (1.1/3.1GHz)</span>
-                    </div>
-                    <div class="progress">
-                      <div
-                        className="progress-bar bg-info"
-                        role="progressbar"
-                        style={{ width: "58%" }}
-                        aria-valuenow="28"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
+                    <CpuRes />
+                    <CpuLoader />
                   </li>
                   <li className="s-li resource d-flex flex-column justify-content-start">
-                    <div className="s-li-wrap d-flex justify-content-start">
-                      <span className="li-ico">{hdd}</span>
-                      <span className="li-item">Storage (63GB/1TB)</span>
-                    </div>
-                    <div class="progress">
-                      <div
-                        className="progress-bar bg-info"
-                        role="progressbar"
-                        style={{ width: "6%" }}
-                        aria-valuenow="28"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
+                    <StorageRes />
+                    <StorageLoader />
                   </li>
                   <li className="s-li resource d-flex flex-column justify-content-start">
-                    <div className="s-li-wrap d-flex justify-content-start">
-                      <span className="li-ico">{bandwidth}</span>
-                      <span className="li-item">Bandwidth (32/100Mbps)</span>
-                    </div>
-                    <div class="progress">
-                      <div
-                        className="progress-bar bg-info"
-                        role="progressbar"
-                        style={{ width: "32%" }}
-                        aria-valuenow="28"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
+                    <BandwidthRes />
+                    <BandwidthLoader/>
                   </li>
                 </ul>
               </div>
@@ -236,38 +186,9 @@ function App() {
         </div>
         <div className="content">
           <h2 className="section-title">Traffic Analytics</h2>
-
           <div className="card-display card-deck">
             <div className="card">
-              <div className="card-wrapper">
-                <h3 className="card-title">Today</h3>
-                <div className="card-stat d-flex justify-content-between">
-                  <h2 className="card-stat-num">5400</h2>
-                  <div className="card-stat-ico">{up}</div>
-                </div>
-                <div className="card-source">
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{google}</span> Search
-                      Engine
-                    </div>
-                    <h6 className="card-source-num">36%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{direct}</span> Direct
-                    </div>
-                    <h6 className="card-source-num">28%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{affiliate}</span>{" "}
-                      Affiliates
-                    </div>
-                    <h6 className="card-source-num">9%</h6>
-                  </div>
-                </div>
-              </div>
+              <TodayTraffic />
             </div>
             <div className="card">
               <div className="card-wrapper">
@@ -342,7 +263,7 @@ function App() {
                 <div className="left-title d-flex justify-content-between">
                   <h4>Trending Products</h4>
 
-                  <div class="dropdown">
+                  <div className="dropdown">
                     <button
                       className="btn btn-secondary dropdown-toggle"
                       type="button"
@@ -367,9 +288,9 @@ function App() {
                   </div>
                 </div>
                 <div className="left-content">
-                  <div class="">
-                    <table class="table table-striped table-borderless trending-table table-responsive">
-                      <thead class="thead-dark">
+                  <div className="">
+                    <table className="table table-striped table-borderless trending-table table-responsive">
+                      <thead className="thead-dark">
                         <tr>
                           <th>Product</th>
                           <th>Popularity</th>
@@ -421,7 +342,7 @@ function App() {
                     <div className="top-right right-card d-flex flex-column col-5">
                       <h6>Target</h6>
                       <h3>$200k</h3>
-                      <div class="progress deck-progress-main">
+                      <div className="progress deck-progress-main">
                         <div
                           className="progress-bar deck-progress"
                           role="progressbar"
@@ -437,8 +358,8 @@ function App() {
                   <div className="right-bottom row">
                     <div className="top-right right-card  col-5">
                       <h5>Ad-Campaigns</h5>
-                      <p class="font-italic">No campaigns yet</p>
-                      <button class="campaign-btn">Start Now</button>
+                      <p className="font-italic">No campaigns yet</p>
+                      <button className="campaign-btn">Start Now</button>
                     </div>
                     <div className="top-left right-card  col-6">
                       <h6>New Users</h6>
@@ -451,11 +372,14 @@ function App() {
             </div>
           </div>
 
-          <div class="table-wrapper">
+          <div className="table-wrapper">
             <h2 className="section-title">Orders</h2>
-            <div class="table-responsive">
-              <table class="table table-striped table-borderless" id="table">
-                <thead class="thead-dark">
+            <div className="table-responsive">
+              <table
+                className="table table-striped table-borderless"
+                id="table"
+              >
+                <thead className="thead-dark">
                   <tr>
                     <th>ID</th>
                     <th>Date</th>
@@ -470,42 +394,42 @@ function App() {
                     <td>25/06/2021</td>
                     <td>5331</td>
                     <td>$321.6</td>
-                    <td class="td-status processing">Processing</td>
+                    <td className="td-status processing">Processing</td>
                   </tr>
                   <tr>
                     <td>2</td>
                     <td>25/06/2021</td>
                     <td>9984</td>
                     <td>$411.2</td>
-                    <td class="td-status processing">Processing</td>
+                    <td className="td-status processing">Processing</td>
                   </tr>
                   <tr>
                     <td>3</td>
                     <td>24/06/2021</td>
                     <td>1330</td>
                     <td>$16.6</td>
-                    <td class="td-status processing">Processing</td>
+                    <td className="td-status processing">Processing</td>
                   </tr>
                   <tr>
                     <td>4</td>
                     <td>24/06/2021</td>
                     <td>8945</td>
                     <td>$72.5</td>
-                    <td class="td-status shipped">Shipped</td>
+                    <td className="td-status shipped">Shipped</td>
                   </tr>
                   <tr>
                     <td>5</td>
                     <td>24/06/2021</td>
                     <td>3335</td>
                     <td>$125.46</td>
-                    <td class="td-status shipped">Shipped</td>
+                    <td className="td-status shipped">Shipped</td>
                   </tr>
                   <tr>
                     <td>6</td>
                     <td>24/06/2021</td>
                     <td>2785</td>
                     <td>$687.0</td>
-                    <td class="td-status shipped">Shipped</td>
+                    <td className="td-status shipped">Shipped</td>
                   </tr>
                 </tbody>
               </table>
