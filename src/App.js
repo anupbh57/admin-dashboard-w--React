@@ -6,8 +6,22 @@ import airpods from "./airpods.png";
 import watch from "./watch.png";
 import ReactDOM from "react-dom";
 import Example from "./Chart";
-import { UserName, SiteTitle, CpuRes, CpuLoader, StorageRes, StorageLoader, BandwidthRes, BandwidthLoader } from "./components/User";
-import { TodayTraffic } from "./components/traffic";
+import {
+  UserName,
+  SiteTitle,
+  CpuRes,
+  CpuLoader,
+  StorageRes,
+  StorageLoader,
+  BandwidthRes,
+  BandwidthLoader,
+  TodayTraffic,
+  YesterdayTraffic,
+  MonthTraffic,
+  TotalSales,
+  TargetSales,
+  NewUsers,
+} from "./components/User";
 import "popper.js";
 import $ from "jquery";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
@@ -177,7 +191,7 @@ function App() {
                   </li>
                   <li className="s-li resource d-flex flex-column justify-content-start">
                     <BandwidthRes />
-                    <BandwidthLoader/>
+                    <BandwidthLoader />
                   </li>
                 </ul>
               </div>
@@ -191,68 +205,12 @@ function App() {
               <TodayTraffic />
             </div>
             <div className="card">
-              <div className="card-wrapper">
-                <h3 className="card-title">Yesterday</h3>
-                <div className="card-stat d-flex justify-content-between">
-                  <h5 className="card-stat-num">3208</h5>
-                  <div className="card-stat-ico">{up}</div>
-                </div>
-                <div className="card-source">
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{google}</span> Search
-                      Engine
-                    </div>
-                    <h6 className="card-source-num">42%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{direct}</span> Direct
-                    </div>
-                    <h6 className="card-source-num">19%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{affiliate}</span>{" "}
-                      Affiliates
-                    </div>
-                    <h6 className="card-source-num">39%</h6>
-                  </div>
-                </div>
-              </div>
+              <YesterdayTraffic />
               <div id="overlay"></div>
             </div>
 
             <div className="card">
-              <div className="card-wrapper">
-                <h3 className="card-title">This Month</h3>
-                <div className="card-stat d-flex justify-content-between">
-                  <h2 className="card-stat-num">186,128</h2>
-                  <div className="card-stat-ico">{up}</div>
-                </div>
-                <div className="card-source">
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{google}</span> Search
-                      Engine
-                    </div>
-                    <h6 className="card-source-num">58%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{direct}</span> Direct
-                    </div>
-                    <h6 className="card-source-num">28%</h6>
-                  </div>
-                  <div className="card-source-row d-flex justify-content-between">
-                    <div className="card-source-sr">
-                      <span className="card-source-ico">{affiliate}</span>{" "}
-                      Affiliates
-                    </div>
-                    <h6 className="card-source-num">14%</h6>
-                  </div>
-                </div>
-              </div>
+              <MonthTraffic />
             </div>
           </div>
 
@@ -300,7 +258,7 @@ function App() {
                       <tbody>
                         <tr>
                           <td>
-                            <img src={iphone}></img>Apple Iphone 12
+                            <img src={iphone}></img>Apple Iphone 13
                           </td>
                           <td>+51%</td>
                           <td>{option}</td>
@@ -336,24 +294,10 @@ function App() {
                   <div className="right-top row">
                     <div className="top-left right-card  col-6">
                       <h6>Total Sales</h6>
-                      <h3>$25k</h3>
+                      <h3><TotalSales /></h3>
                       {renderLineChart}
                     </div>
-                    <div className="top-right right-card d-flex flex-column col-5">
-                      <h6>Target</h6>
-                      <h3>$200k</h3>
-                      <div className="progress deck-progress-main">
-                        <div
-                          className="progress-bar deck-progress"
-                          role="progressbar"
-                          style={{ width: "68%" }}
-                          aria-valuenow="28"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <h6>Current: 138,000</h6>
-                    </div>
+                    <TargetSales />
                   </div>
                   <div className="right-bottom row">
                     <div className="top-right right-card  col-5">
@@ -363,7 +307,7 @@ function App() {
                     </div>
                     <div className="top-left right-card  col-6">
                       <h6>New Users</h6>
-                      <h3>+231</h3>
+                      <h3><NewUsers /></h3>
                       {renderLineChart}
                     </div>
                   </div>

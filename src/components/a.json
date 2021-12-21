@@ -1,5 +1,41 @@
 {
-  "traffic":[
+  "user": [
+    {
+      "username": "admin",
+      "profilep": "./man.png",
+      "name": {
+        "first": "Anup",
+        "last": "Bhandari"
+      }
+    }
+  ],
+  "site": {
+    "primary": {
+      "title": "prototype",
+      "tagline": "prototype"
+    }
+  },
+  "resources": [
+    {
+      "CPU": {
+        "total": 3.6,
+        "used": 2.9
+      }
+    },
+    {
+      "storage": {
+        "total": 1,
+        "used": 68
+      }
+    },
+    {
+      "bandwidth": {
+        "total": 100,
+        "used": 28
+      }
+    }
+  ],
+  "traffic": [
     {
       "sources": {
         "total": 8267,
@@ -18,46 +54,6 @@
     },
     {
       "sources": {
-        "total": 8839,
-        "sengine": 4385,
-        "direct": 3288,
-        "affiliates": 1166
-      }
-    },
-    {
-      "sources": {
-        "total": 10551,
-        "sengine": 6508,
-        "direct": 2388,
-        "affiliates": 1655
-      }
-    },
-    {
-      "sources": {
-        "total": 12893,
-        "sengine": 7805,
-        "direct": 3100,
-        "affiliates": 1988
-      }
-    },
-    {
-      "sources": {
-        "total": 12987,
-        "sengine": 8188,
-        "direct": 1233,
-        "affiliates": 3566
-      }
-    },
-    {
-      "sources": {
-        "total": 11699,
-        "sengine": 4256,
-        "direct": 3655,
-        "affiliates": 3788
-      }
-    },
-    {
-      "sources": {
         "total": 248010,
         "sengine": 140520,
         "direct": 80520,
@@ -66,14 +62,48 @@
     },
     {
       "sources": {
-        "total": 247520,
+        "total": 2475520,
         "sengine": 155300,
         "direct": 33600,
         "affiliates": 58620
       }
     }
+  ],
+  "products": [
+    {
+      "prodA": {
+        "id": "1",
+        "name": "Apple Iphone 13",
+        "popularity": 51
+      }
+    },
+    {
+      "prodB": {
+        "id": "2",
+        "name": "Apple Earpods Gen3",
+        "popularity": 46
+      }
+    },
+    {
+      "prodC": {
+        "id": "3",
+        "name": "Apple Watch Gen6",
+        "popularity": 35
+      }
+    },
+    {
+      "prodD": {
+        "id": "1",
+        "name": "Apple Magsafe Charger",
+        "popularity": 25
+      }
+    },
+    {
+      "prodE": {
+        "id": "1",
+        "name": "Google Chromecast",
+        "popularity": 19
+      }
+    }
   ]
-    
 }
-
-

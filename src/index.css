@@ -226,7 +226,7 @@ code {
   font-weight: 200;
 }
 .card-stat * {
-  color: rgb(25, 175, 62) !important;
+  color: rgb(25, 175, 62);
 }
 .card-stat-ico {
   margin: auto 0;
