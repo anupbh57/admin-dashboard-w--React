@@ -1,15 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&display=swap");
 * {
-  background: radial-gradient(
-    farthest-side ellipse at 10% 0,
-    #333867 20%,
-    #17193b
-  );
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: "Maven Pro", sans-serif;
-  color: rgba(244, 244, 245, 0.901961);
+ 
 }
 body {
   margin: 0;
@@ -24,13 +15,36 @@ code {
   font-family: "Maven Pro", sans-serif;
 }
 .main {
+   background: radial-gradient(
+    farthest-side ellipse at 10% 0,
+    #333867 20%,
+    #17193b
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Maven Pro", sans-serif;
+  color: rgba(244, 244, 245, 0.901961);
   width: 100%;
 }
 .main-wrapper {
   flex-wrap: wrap;
   width: 100%;
 }
-
+.nav-wrapper {
+ background: radial-gradient(
+    farthest-side ellipse at 10% 0,
+    #333867 20%,
+    #17193b
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Maven Pro", sans-serif;
+  width: 90% !important;
+  margin: .5rem auto;
+  border: none !important;
+}
 /* Navigation Bar Starts */
 .nav-logo {
   font-size: 1.3rem;
@@ -122,6 +136,17 @@ code {
   width: 100%;
   margin-top: 2rem;
 }
+.sbutton{
+  display:none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  height: fit-content;
+  background: rgba(0, 0, 0, 0.336);
+  border: none;
+  font-size: 1.5rem;
+  color: rgba(57, 161, 92, 0.568);
+}
 .sidebar {
   padding: 0 !important;
   display: flex;
@@ -154,7 +179,6 @@ code {
   padding: 0.75rem;
   text-transform: capitalize;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.301);
   margin: 0 5%;
   border-radius: 1rem;
 }
@@ -270,10 +294,13 @@ code {
   width: 97%;
   margin: auto;
   margin-top: 2rem;
+  color: white !important;
+
 }
 
 .table-wrapper * {
   background: transparent;
+  
 }
 
 .table td {
@@ -288,6 +315,8 @@ code {
 }
 .table thead > tr > th {
   border-bottom: none !important;
+    color: white !important;
+
 }
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   color: rgb(161, 158, 158) !important;
@@ -401,13 +430,123 @@ code {
     background: rgba(0, 0, 0, 0.123) !important;
 
 }
+/* Use if recharts wrapper overflows
 .recharts-wrapper {
   width: 200px !important;
 }
+*/
 .campaign-btn {
   border: none;
   background: -webkit-linear-gradient(rgb(0, 251, 105), rgb(4, 204, 144));
   color: white;
   height: 40px;
   width: 100px;
+}
+@media only screen and (max-width: 1060px) {
+  .deck-wrapper {
+    flex-direction: column !important;
+  }
+  .deck-left {
+    width: 96% !important;
+
+  }
+  .deck-right {
+    width: 95% !important;
+    margin: auto;
+    margin-top: 2rem !important;
+  }
+  .deck-right {
+    padding: 0 !important;
+  }
+  .right-top, .right-bottom {
+    width: 100% !important;
+  }
+  .right-wrapper {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .deck {
+    padding: 1rem 0 !important;
+  }
+  .main-content {
+    flex-direction: column;
+  }
+  .sidebar {
+    display: none;
+    position:fixed;
+    top: 5rem;
+    left: 0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    max-width: 40%!important; /* viewport width */
+    height: 100vh; /* viewport height */
+    background:rgba(0, 0, 0, 0.795);
+
+  }
+  .sbutton {
+    display: inline;
+    top: 1rem;
+    left: 1rem;
+  }
+  .sidebar {
+    opacity: 1;
+    z-index: 2;
+  }
+  .sidebar::-webkit-scrollbar {
+  display: none;
+}
+.content {
+  width: 100%;
+}
+}
+
+@media only screen and (max-width: 560px) {
+  .nav-wrapper {
+    flex-direction: column;
+  }
+  .right-top, .right-bottom {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .top-left, .top-right {
+    margin-bottom: 1rem;
+  }
+
+} 
+@media only screen and (max-width: 800px) {
+  .card-display {
+    flex-direction: column !important;
+  }
+  .card {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  .section-title {
+    width: 90%;
+    margin: 1rem auto;
+  }
+}
+@media only screen and (max-width: 730px) {
+  
+.nav-wrapper {
+  width: 80% !important;
+  margin: auto;
+}
+  .nav-search {
+    display: none !important;
+  }
+  .nav-logo {
+    text-align: center;
+    margin: 1rem;
+    border-bottom: solid;
+    border-width: 5px;
+  border-image: linear-gradient(rgb(230, 230, 230), transparent) 1;
+  }
+  .nav-profile-left {
+  padding-right: 15px;
+}
+.nav-controls {
+  width: 20%;
+}
 }

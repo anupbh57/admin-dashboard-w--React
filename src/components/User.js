@@ -8,6 +8,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faMousePointer } from "@fortawesome/free-solid-svg-icons";
 import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import { data } from "jquery";
+
 const up = <FontAwesomeIcon icon={faSortUp} />;
 const google = <FontAwesomeIcon icon={faGoogle} />;
 const direct = <FontAwesomeIcon icon={faMousePointer} />;
@@ -464,7 +465,7 @@ class TargetSales extends res {
     let width = (this.state.salesCurrent / this.state.salesTarget) * 100;
     let style = { width: width + "%" };
     return (
-      <div className="top-right right-card d-flex flex-column col-5">
+      <div className="top-right right-card d-flex flex-column col-sm-5">
         <h6>Target</h6>
         <h3>{this.state.salesTarget}</h3>
         <div className="progress deck-progress-main">
@@ -487,6 +488,8 @@ class NewUsers extends res {
     return this.state.newUsers;
   }
 }
+
+
 
 export {
   UserName,

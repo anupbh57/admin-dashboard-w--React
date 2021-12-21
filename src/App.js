@@ -6,6 +6,8 @@ import airpods from "./airpods.png";
 import watch from "./watch.png";
 import ReactDOM from "react-dom";
 import Example from "./Chart";
+import { useEffect } from "react";
+
 import {
   UserName,
   SiteTitle,
@@ -30,6 +32,7 @@ import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
@@ -62,6 +65,7 @@ const hdd = <FontAwesomeIcon icon={faHdd} />;
 const bandwidth = <FontAwesomeIcon icon={faWifi} />;
 const filter = <FontAwesomeIcon icon={faFilter} />;
 const option = <FontAwesomeIcon icon={faCaretDown} />;
+const bars = <FontAwesomeIcon icon={faBars} />;
 const data = [
   { name: "Monday", uv: 7800 },
   { name: "Tuesday", uv: 6100 },
@@ -78,6 +82,8 @@ const renderLineChart = (
   </ResponsiveContainer>
 );
 const notifNumber = 12;
+
+
 
 function App() {
   return (
@@ -113,6 +119,7 @@ function App() {
       </nav>
 
       <div className="main-content d-flex justify-content-between">
+        <button className="sbutton">{bars}</button>
         <div className="sidebar container-fluid">
           <div className="sidebar-wrapper row">
             <div className="sidebar-content">
@@ -246,8 +253,8 @@ function App() {
                   </div>
                 </div>
                 <div className="left-content">
-                  <div className="">
-                    <table className="table table-striped table-borderless trending-table table-responsive">
+                  <div className="table-responsive">
+                    <table className="table table-striped table-borderless trending-table">
                       <thead className="thead-dark">
                         <tr>
                           <th>Product</th>
@@ -292,22 +299,26 @@ function App() {
               <div className="deck-right col-6 ">
                 <div className="right-wrapper container-fluid">
                   <div className="right-top row">
-                    <div className="top-left right-card  col-6">
+                    <div className="top-left right-card  col-sm-6">
                       <h6>Total Sales</h6>
-                      <h3><TotalSales /></h3>
+                      <h3>
+                        <TotalSales />
+                      </h3>
                       {renderLineChart}
                     </div>
                     <TargetSales />
                   </div>
                   <div className="right-bottom row">
-                    <div className="top-right right-card  col-5">
+                    <div className="top-right right-card  col-sm-5">
                       <h5>Ad-Campaigns</h5>
                       <p className="font-italic">No campaigns yet</p>
                       <button className="campaign-btn">Start Now</button>
                     </div>
-                    <div className="top-left right-card  col-6">
+                    <div className="top-left right-card  col-sm-6">
                       <h6>New Users</h6>
-                      <h3><NewUsers /></h3>
+                      <h3>
+                        <NewUsers />
+                      </h3>
                       {renderLineChart}
                     </div>
                   </div>
